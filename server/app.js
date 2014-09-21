@@ -4,11 +4,13 @@ var apiMiddleware = require('bla').apiMiddleware(__dirname + '/*.api.js');
 
 var app = express();
 var clientPath = __dirname + '/../client';
+var nodeModulesPath = __dirname + '/../node_modules';
 
 app.set('views', clientPath);
 app.set('view engine', 'jade');
 
-app.use('/bla', express.static(__dirname + '/../node_modules/bla/build'));
+app.use('/bla', express.static(nodeModulesPath + '/bla/build'));
+app.use('/flotr2', express.static(nodeModulesPath +  '/flotr2'));
 app.use('/', express.static(clientPath));
 
 app.use(bodyParser.json());
