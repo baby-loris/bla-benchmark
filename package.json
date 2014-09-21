@@ -1,0 +1,19 @@
+{
+  "name": "bla-benchmark",
+  "version": "0.0.1",
+  "description": "Benchmark for batch mode in `bla` library",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/baby-loris/bla-benchmark.git"
+  },
+  "dependencies": {
+    "express": "^4.9.4",
+    "body-parser": "^1.8.3",
+    "jade": "^1.7.0",
+    "bla": "~0.0.12"
+  },
+  "scripts": {
+    "test": "make run"
+  },
+  "license": "MIT"
+}

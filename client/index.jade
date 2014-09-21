@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+  head
+    title="benchmark"
+    style.
+      body {
+        font-family: 'Helvetica Neue', arial;
+      }
+      .run-container {
+        margin-bottom: 20px;
+      }
+      #run {
+        padding: 6px 12px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #0ea2e6;
+      }
+      #run:hover {
+        background-color: #0eacef;
+      }
+      .diagram-container {
+        margin-top: 10px; width: 500px; height: 450px;
+      }
+      .diagram-title {
+        margin: 0 0 15px 2px;
+      }
+      .diagram {
+        float: left;
+      }
+      .diagram + .diagram {
+        margin-left: 50px;
+      }
+      .req {
+        float: right;
+      }
+      i {
+        color: #970010;
+      }
+
+  body
+    h3 Testing batch mode
+    .run-container
+      button#run Run
+    .diagram
+      .diagram-title With batching
+      i ms
+      #batch-container.diagram-container
+      i.req number of concurrent requests
+    .diagram
+      .diagram-title Without batching
+      i ms
+      #nobatch-container.diagram-container
+      i.req number of concurrent requests
+
+    script(type="text/javascript" src="bla/bla.min.js")
+    script(type="text/javascript" src="flotr2.js")
+    script(type="text/javascript" src="benchmark.js")
