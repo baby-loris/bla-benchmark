@@ -51,14 +51,14 @@ function drawDiagram(container, data) {
  *
  * @param {Number} requestsNumber Initial number.
  * @param {Array} data An array to store data.
- * @param {Boolean} disableBatch
+ * @param {Boolean} noBatching
  * @param {Function} cb Called on complete with collected data.
  */
-function runBenchmark(requestsNumber, data, disableBatch, cb) {
-    request(disableBatch, requestsNumber, function (batchTime) {
+function runBenchmark(requestsNumber, data, noBatching, cb) {
+    request(noBatching, requestsNumber, function (batchTime) {
         data.push([requestsNumber, batchTime]);
         if (requestsNumber++ <= MAX_REQUESTS_NUMBER) {
-            runBenchmark(requestsNumber, data, disableBatch, cb);
+            runBenchmark(requestsNumber, data, noBatching, cb);
         } else {
             cb(data);
         }
@@ -68,12 +68,12 @@ function runBenchmark(requestsNumber, data, disableBatch, cb) {
 /**
  * Performs the specified number of requests.
  *
- * @param {Boolean} disableBatch
+ * @param {Boolean} noBatching
  * @param {Number} requestsNumber
  * @param {Function} fn Callback function is invoked with the response time.
  */
-function request(disableBatch, requestsNumber, fn) {
-    var api = getApi(disableBatch);
+function request(noBatching, requestsNumber, fn) {
+    var api = getApi(noBatching);
     var startTime = new Date();
     var counter = 0;
     var i = requestsNumber;
@@ -92,15 +92,15 @@ function request(disableBatch, requestsNumber, fn) {
 /**
  * Returns an instance of Api with the specified batch option.
  *
- * @param {Boolean} disableBatch
+ * @param {Boolean} noBatching
  * @returns {bla.Api}
  */
 var getApi = (function () {
     var cache = {};
-    return function (disableBatch) {
-        var key = String(disableBatch);
+    return function (noBatching) {
+        var key = String(noBatching);
         if (!cache[key]) {
-            cache[key] = new bla.Api('/api/', {disableBatch: disableBatch});
+            cache[key] = new bla.Api('/api/', {noBatching: noBatching});
         }
         return cache[key];
     }
