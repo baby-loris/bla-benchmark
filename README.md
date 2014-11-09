@@ -8,7 +8,8 @@ In a word, in `batch mode` concurrent requests are collected within a short peri
 ### Quick start
 Clone this repository and run:
 ```
-make
+npm install
+npm start
 ```
 
 Follow the link:
