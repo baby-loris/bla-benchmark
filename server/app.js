@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var apiMiddleware = require('bla').apiMiddleware(__dirname + '/*.api.js');
+var bla = require('bla');
+var api = new bla.Api(__dirname + '/*.api.js');
+var apiMiddleware = bla.apiMiddleware(api);
 
 var app = express();
 var clientPath = __dirname + '/../client';

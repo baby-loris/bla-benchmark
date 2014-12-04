@@ -11,7 +11,7 @@
     "flotr2": "git://github.com/HumbleSoftware/Flotr2.git#df0ddedcab1a8fdb3a7abafc5fe97819931e7bd5",
     "body-parser": "^1.8.3",
     "jade": "^1.7.0",
-    "bla": "~0.0.15"
+    "bla": "^1.0.0"
   },
   "scripts": {
     "start": "node server/boot.js"
